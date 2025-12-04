@@ -1,6 +1,5 @@
 import 'dart:convert';
 
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:my_store_app/global_variables.dart';
 import 'package:my_store_app/models/user.dart';
@@ -73,7 +72,7 @@ class AuthController {
         onSuccess: () {
           Navigator.pushAndRemoveUntil(
             context,
-            MaterialPageRoute(builder: (context) => const MainScreen()),
+            MaterialPageRoute(builder: (context) => MainScreen()),
             (route) => false,
           );
           showSnackbar(context: context, title: 'Signed in successfully');
