@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:my_store_app/view/screens/nav_screens/widgets/category_item_widget.dart';
+import 'widgets/banner_widget.dart';
 import 'widgets/header_widget.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -8,7 +10,9 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
-        child: Column(children: [HeaderWidget(), Text("Home Screen")]),
+        child: Column(
+          children: [HeaderWidget(), BannerWidget(), CategoryItemWidget()],
+        ),
       ),
     );
   }
