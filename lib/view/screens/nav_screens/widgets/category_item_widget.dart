@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:my_store_app/controllers/category_controller.dart';
 import 'package:my_store_app/models/category.dart';
+import 'package:my_store_app/view/screens/detail/screens/inner_category_screen.dart';
 import 'package:my_store_app/view/screens/nav_screens/widgets/resuable_text_widget.dart';
 
 class CategoryItemWidget extends StatefulWidget {
@@ -49,17 +50,29 @@ class _CategoryItemWidgetState extends State<CategoryItemWidget> {
                 ),
                 itemBuilder: (context, index) {
                   final category = categories[index];
-                  return Column(
-                    children: [
-                      Image.network(width: 47, height: 47, category.image),
-                      Text(
-                        category.name,
-                        style: GoogleFonts.quicksand(
-                          fontSize: 16,
-                          fontWeight: FontWeight.bold,
+                  return InkWell(
+                    onTap: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) {
+                            return InnerCategoryScreen(category: category);
+                          },
                         ),
-                      ),
-                    ],
+                      );
+                    },
+                    child: Column(
+                      children: [
+                        Image.network(width: 47, height: 47, category.image),
+                        Text(
+                          category.name,
+                          style: GoogleFonts.quicksand(
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ],
+                    ),
                   );
                 },
               );
