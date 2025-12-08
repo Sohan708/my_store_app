@@ -16,7 +16,7 @@ class SubCategoryController {
       );
       if (response.statusCode == 200) {
         final List<dynamic> data = json.decode(response.body);
-        if (data.isEmpty) {
+        if (data.isNotEmpty) {
           return data.map((json) => SubCategory.fromJson(json)).toList();
         } else {
           print("subcategory not found");
