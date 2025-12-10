@@ -105,4 +105,30 @@ class AuthController {
       showSnackbar(context: context, title: 'Error: ${e.toString()}');
     }
   }
+
+  //sign out users function
+  Future<void> signOutUsers({required context}) async {
+    try {
+      //Access sharedPreferences for token and user data storage
+      SharedPreferences preferences = await SharedPreferences.getInstance();
+
+      //remove the authentication token from sharedPreferences
+      await preferences.remove('auth_token');
+
+      //remove the user data from sharedPreferences
+      await preferences.remove('user_data');
+
+      //update the application state with the user data
+      providerContainer.read(userProvider.notifier).signOut();
+
+      Navigator.pushAndRemoveUntil(
+        context,
+        MaterialPageRoute(builder: (context) => const LoginScreen()),
+        (route) => false,
+      );
+      showSnackbar(context: context, title: 'Signed out successfully');
+    } catch (e) {
+      showSnackbar(context: context, title: 'Error: ${e.toString()}');
+    }
+  }
 }
