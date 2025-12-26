@@ -3,7 +3,7 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:my_store_app/controllers/category_controller.dart';
 import 'package:my_store_app/models/category.dart';
 import 'package:my_store_app/view/screens/detail/screens/inner_category_screen.dart';
-import 'package:my_store_app/view/screens/nav_screens/widgets/resuable_text_widget.dart';
+import 'package:my_store_app/view/screens/nav_screens/widgets/reusable_text_widget.dart';
 
 class CategoryItemWidget extends StatefulWidget {
   const CategoryItemWidget({super.key});
@@ -27,7 +27,7 @@ class _CategoryItemWidgetState extends State<CategoryItemWidget> {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const ResuableTextWidget(title: "Categories", subtitle: "View all"),
+        const ReusableTextWidget(title: "Categories", subtitle: "View all"),
         FutureBuilder(
           future: futureCategories,
           builder: (context, snapshot) {
