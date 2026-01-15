@@ -48,7 +48,7 @@ class MyApp extends ConsumerWidget {
             return Center(child: CircularProgressIndicator());
           }
           final user = ref.watch(userProvider);
-          return user != null ? MainScreen() : LoginScreen();
+          return user != null ? MainScreen() : MainScreen();
         },
       ),
     );

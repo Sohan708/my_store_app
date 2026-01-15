@@ -45,9 +45,9 @@ class ProductItemWidget extends StatelessWidget {
                   Positioned(
                     top: 15,
                     right: 2,
-                    child: Image.asset("assets/icons/love.png"),
                     width: 26,
                     height: 26,
+                    child: Image.asset("assets/icons/love.png"),
                   ),
                   Positioned(
                     bottom: 0,

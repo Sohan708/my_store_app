@@ -1,7 +1,14 @@
-import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_riverpod/legacy.dart';
 
 import '../models/cart.dart';
+
+//Define a StateNotifierProvider to expose an instance of CartNotifier
+//Makeing it assessible to the entire app
+final cartProvider = StateNotifierProvider<CartNotifier, Map<String, Cart>>((
+  ref,
+) {
+  return CartNotifier();
+});
 //A notifier class to manage the cart state, extending stateNotifier
 //with an initial state of empty map
 
@@ -41,6 +48,7 @@ class CartNotifier extends StateNotifier<Map<String, Cart>> {
     } else {
       //if the product is not in the cart, add it with the provied details
       state = {
+        ...state,
         productId: Cart(
           productName: productName,
           productPrice: productPrice,
@@ -58,6 +66,7 @@ class CartNotifier extends StateNotifier<Map<String, Cart>> {
   }
 
   //Method to increment the quantity opf a product in the cart
+  // ignore: non_constant_identifier_names
   void IncrementCartItem(String productId) {
     if (state.containsKey(productId)) {
       state[productId]!.quantity++;

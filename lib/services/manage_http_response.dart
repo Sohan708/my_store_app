@@ -30,5 +30,12 @@ void manageHttpResponse({
 }
 
 void showSnackbar({required BuildContext context, required String title}) {
-  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(title)));
+  ScaffoldMessenger.of(context).showSnackBar(
+    SnackBar(
+      margin: const EdgeInsets.all(15),
+      behavior: SnackBarBehavior.floating,
+      backgroundColor: Colors.grey,
+      content: Text(title),
+    ),
+  );
 }
