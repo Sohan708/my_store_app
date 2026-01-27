@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:my_store_app/provider/user_provider.dart';
-import 'package:my_store_app/view/screens/authentication_screens/login_screen.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:my_store_app/view/screens/main_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
